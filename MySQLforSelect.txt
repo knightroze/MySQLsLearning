@@ -40,5 +40,5 @@ The wildcard
 	select concat(a,b,c,d,e,'(',')') as newname from XXX 
 	#the newname would be the view's new column's name.
 
-	select a+b as totol from XXX
+	select a+b as total from XXX
 	#you can direct use a+b,b*c to make a new column.
