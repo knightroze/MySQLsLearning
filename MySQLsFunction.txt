@@ -1,0 +1,31 @@
+ltrim:delete space in the left
+rtrim:delete space in the right
+trim:delete space both left and right
+upper:change letter to capital
+lower:change letter to lowercase
+length:return the length of the string
+soundex:return the soundex of the string
+
+some math function:
+abs
+cos
+exp
+pi
+sin
+sqrt
+tan
+
+
+aggregate function
+avg(column):return the average, can use "where" to limit the range.
+		eg: select avg(price) from product where id='001'
+count(*|filed):return the number of selected filed.
+		eg: select count(email) ans num_email from customer
+max,min,sum is as the same as count
+
+All above five functions have two attributes: all and distinct, if choose distinct, the function would omit the repeated value.
+		eg:select avg(distinct price) as avg_price from XXX
+
+
+summary eg:
+select count(*) as num_items,min(price) as min,max(price) as max,avg(price) as avg from products .

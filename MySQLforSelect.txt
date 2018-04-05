@@ -1,0 +1,44 @@
+1.select
+	select [all|distinct] <attribute> from <filed>
+	#different attributes seperated by comma,
+	#"distinct" can omit the repeated lines and whereas "all" is default.
+	eg: 	select a,b,c from letter
+		select * from products
+	
+
+	select prod_name from products limit 5:#show the first 5 lines
+	select prod_name from products limit a offset b:#show a lines begin at b lines, particularly pay attention to that the first line is 0!!.
+
+	select prod_name from products order by A[desc],B[desc],C[desc]:#make the result show in an order.Particularly A can be the column which not be selected! When A are the same then compared B and then C.The default condition is order from low to high, whereas when "desc" be used the order would be from high to low.
+	
+	select prod_name,prod_price from products where prod_price = 3.49:#show lines whose prod_price=3.49, pay attention that "where" should in front of "order"
+	# op code:=, !=, <=, between, is null,
+	# we can use "and" "or" to connect two subsentense of a where
+	eg: where a>10 and (b!=b and flag=1)
+	# where prod_price in (12,13)
+	# where not price=10
+
+The wildcard
+	select prod_id prom products where prod_name like 'Fish%':#means to select a line begin with "Fish" and followed with %(any char appear any times),also can write "%ish%"
+	#another wildcard  '_' can select only one char, need to be differed with # which can select any number char.
+	
+
+
+
+2.note
+	the note in line:   --this is my note
+	the note line   :#this line is for note
+	the note block  :/*        */
+
+
+3.concatenate!
+	select concat(a,b,c,d,e,'(',')') from XXX
+	#concat can connect the elements in the(), also include the'(', can show the ( in result.(amazing)
+	#rtrim(s),delete the space in right of the string
+	#ltrim()delete left;trim()delete right and left
+	
+	select concat(a,b,c,d,e,'(',')') as newname from XXX 
+	#the newname would be the view's new column's name.
+
+	select a+b as totol from XXX
+	#you can direct use a+b,b*c to make a new column.
