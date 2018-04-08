@@ -1,0 +1,19 @@
+char	length in range 1 to 255, when use it ,user must definate the length such as	char(5)
+nchar	specail char
+text	whose length is not fixed.
+nvarchar	special text	
+
+
+
+bit	a binary,value is 0 or 1
+decimal	another type float
+float	float
+int	4bytes integer -2147483648~2147483647
+real	4bytes float
+smallint	-32768~32767
+tinyint 0~255 
+
+date	date
+datetime	date time
+smalldatetime	date and time, show the minutes
+time	time

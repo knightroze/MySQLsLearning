@@ -1,0 +1,5 @@
+1.subquery is a query which select in another select result.
+	eg:select cust_id from orders where order_num in (select order_num from orderItems where prod_id=XXX)
+	#Attention to that the result of subquery need to be one of the main query attributes.
+2.In the word, the result of query is also a sheet, the same as what we select, all of them can be instead by a select query.
+3.If different sheets have the same column name, can use A.b to define the b of sheet A.

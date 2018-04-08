@@ -1,0 +1,17 @@
+1.use union to connect two different select sentence,but they need have the same number of columns.
+	eg:	select cust_name,cust_contact,cust_email
+
+		from customers
+
+		where cust_state in ('IL','IN','MI')
+
+		union
+
+		select cust_name,cust_contact,cust_email
+
+		from customers
+		
+where cust_name = 'Fun4All'
+
+	#the default condition is 'distinct' which means omit repeated lines,
+	can use 'union all' to show all lines contain repeated lines.

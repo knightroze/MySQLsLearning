@@ -1,0 +1,98 @@
+1.insert
+	insert into customers values ('1000000006','Toy Land','123 Any Street','New York','NY','11111','USA',NULL,NULL)
+	#the inserted value must have the same number as the destination sheet.
+
+	#another way is to explicitly choose the mapping relation between columns and values.
+	insert into customers(id,contact,email,name,address,city,state,zip)
+	values	('1000000006','ToyLand','123AnyStreet','NewYork','NY','11111','USA',NULL,NULL)
+
+2.insert the select
+	insert into customers(A) select (B) from custnew
+	#pay attention to that the insert value can't have the same key to any of the sheet.
+	#A can equal to B or not equal, the database only want to know the order.
+
+3.select and insert
+	create table custcopy as select * from customers
+	
+	#first create a new table and then use select to definate it.
+
+
+4.update
+	update customers 
+	set cust_mail = 'a@123.com' ,
+	    aother_columns = some value,
+	    ...
+	where cust_id = '10000000005';
+
+	#you can set some columns of one line at one time,use commas to seperate them.
+
+
+5.delete
+	delete from customers where cust_id='10000000006'
+	
+	#this sentence can delete the line whose id=10000000006, if there is no where, all the sheet would be deleted
+
+
+
+6.create
+	create table products
+	(
+	columns          datatype      not NULL or NULL     default_value ,
+	prod_id          char(10)      not NULL		    default 1,	
+	prod_id2          char(10)      not NULL,
+	);
+	
+	#first the sheet name mustn't be an exist sheet's name,and second if a colomn is not NULL means the value can't be NULL.The last one is default ,can use it to definate a default value but can also omit default.
+
+7.alter 
+	alter table vendors add vend_phone char(20)
+	#this can add a new column
+
+	alter table vendors drop column vend_phone
+	#this will delete the vend_phone
+	#if you want to delete the whole table use this
+		drop table custcopy
+
+8.create view
+	#view is a table without data
+	create view productcustomers as
+	select cust_name, cust_contact,prod_id
+	from customers,orders,orderitems
+	where customers.cust_id = orders.cust_id and orderitems.order_num = orders.order_num;
+	
+	#after create a view, you can directly select from it.So it means that you can save a query result as a view for using soon.r
+
+
+9.primary key and references
+	#primary key can't be update after defination and every line should have a primary key.
+	eg: create table abc(
+		vend_id char(10) not NULL primary key,
+		...
+		)
+	eg: alter table vendors add constraint primary key (vend_id)
+
+	#reference key is a value which related with another sheet's column value
+	eg: create table abc(
+		vend_id char(10) not NULL references customers(cust_id),
+		...
+		)
+	eg: alter table orders add constraint foreign key(cust_id)references customers (cust_id)
+	#the related sheet can be itself or another different sheet.
+
+10.data check
+	#constraint or rule that the data must obey
+	
+	create table orderitems
+	(
+		quantity integer not NULL check (quantity>0),
+		...
+	)
+
+
+
+
+
+
+
+
+

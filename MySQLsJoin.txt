@@ -1,0 +1,19 @@
+1
+	select vend_name,prod_name from vendors,products where vendors.vend_id = products.vend_id
+	#It's very easy, just select different attributes and different sheets.
+	#"where" is important, if without where, the result is a cartesian product.
+
+2.inner join
+	select vend_name,prod_name from vendors inner join products on vendors.vend_id = products.vend_id 
+	#this query has the same result as the one above.
+
+3.the alias of sheet
+	select cust_name from customers as c where c.cust_id = 0
+
+	#the alias can make the query sentence short, alias can be used before definate, but the defination needs in the same sentence.
+	select c1.cust_id,c1.cust_name,c1.cust_contact from customers as c1, customers as c2 where c1.cust_name = c2.cust_name and c2.cust_contact='jim'
+
+4.outer join
+	select customers.cust_id,orders.order_num from customers left outer join orders on customers.cust_id = orders.cust_id
+	#left means the left sheet keeps its dangling tuple,can also choose right.
+
