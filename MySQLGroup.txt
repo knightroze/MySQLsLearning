@@ -1,0 +1,15 @@
+1.group
+	select vend_id , count(*) as num_prods fromproducts group by vend_id
+	#when using group, the result will grouped calculated.
+2.having
+	select cust_id,count(*) as orders from orders group by cust_id having count(*)>=2
+	#having filte the group whereas where filte the lines.
+
+
+3.the order of select 
+	select
+	from
+	where
+	group by
+	having
+	order by
